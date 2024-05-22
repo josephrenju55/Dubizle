@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title text-center text-primary text-uppercase">Payment</h6>
+        <h1 class="mb-5">Choose A <span class="text-primary text-uppercase">Payment Method</span></h1>
+      </div>
+      <h4 class="mb-5 text-center">Scan QR code</h4>
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6 text-start">
+              <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'img/GooglePay_QR.png' %}" />
+            </div>
+          </div>
+        </div>
+        <h4 class="mb-5 text-center">OR</h4>
+        <div class="container p-0">
+          <div class="card px-4">
+            <p class="h8 py-3">Payment Details</p>
+            <form action="booking" method="post">
+            {% csrf_token %}
+            <div class="row gx-3">
+              <div class="col-12">
+                <div class="d-flex flex-column">
+                  <p class="text mb-1">Card Number</p>
+                  <input class="form-control mb-3" type="text" name="account_number" placeholder="1234 5678 435678" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="d-flex flex-column">
+                  <p class="text mb-1">Person Name</p>
+                  <input class="form-control mb-3" type="text" name="name" placeholder="Name" alue="Barry Allen" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex flex-column">
+                  <p class="text mb-1">Expiry month</p>
+                  <input class="form-control mb-3" type="text" name="expiry_month" placeholder="MM/YYYY" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex flex-column">
+                  <p class="text mb-1">Expiry year</p>
+                  <input class="form-control mb-3" type="text" name="expiry_year" placeholder="MM/YYYY" />
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex flex-column">
+                  <p class="text mb-1">CVV/CVC</p>
+                  <input class="form-control mb-3 pt-2" type="password" name="cvv" placeholder="***" />
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="btn mb-3">
+                  {% comment %} <span class="ps-3">Pay</span>
+                  <span class="fas fa-arrow-right"></span> {% endcomment %}
+                  <input type="submit" value="Pay">
+                </div>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

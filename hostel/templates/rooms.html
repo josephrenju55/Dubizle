@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+  <!-- inner page section -->
+  <div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h6 class="section-title text-start text-primary text-uppercase">Room</h6>
+                <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Our Rooms</span></h1>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- end inner page section -->
+
+  <div class="container">
+    <div class="row-items-center">
+      <div class="col-lg-6 mb-5 ftco-animate">
+        <a href="" class="image-popup"><img src="{{obj.img.url}}" class="img-fluid" alt="" /></a>
+      </div>
+      <div class="heading_container heading_center">
+        <h2>{{obj.name}}</h2>
+      </div>
+    </div>
+    <div class="col-md-12 tab-wrap">
+      <div class="tab-content bg-light" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
+          <div class="p-4">
+            <h4 class="mb-4">Category : {{obj.cate}}</h4>
+            <h4 class="price">Price : ₹{{obj.price}}/-</h4>
+            <p>{{obj.desc}}</p>
+            {% comment %} <div class="load-more-btn mt-100 wow fadeInUp" data-wow-delay="0.7s" data-wow-duration="1000ms">
+              <a href="#" class="btn original-btn">Read More</a>
+          </div> {% endcomment %}
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
+
+          <button onclick="myFunction()" id="myBtn">Read more</button>
+          
+{% comment %} 
+          <div class="container">
+            <div class="row">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porttitor feugiat ipsum quis ullamcorper. Nullam vitae velit vitae tortor semper tempor ac vitae magna. Maecenas a ullamcorper neque. Aliquam vitae tortor luctus nisi rutrum eleifend non non leo.</p>
+
+          <div id="collapse" style="display:none">
+              <p>Sed eleifend lectus id semper accumsan. Sed lobortis id ligula eget blandit. Integer interdum iaculis nunc, sed porttitor magna tincidunt in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam lobortis accumsan tempor. Aliquam sollicitudin pulvinar est, quis convallis tellus.</p>
+          </div>
+          <a href="#collapse" class="nav-toggle">Read More</a>
+            </div>
+          </div> {% endcomment %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ftco-section">
+      <p><a href="{% url 'booking' %}" class="btn btn-dark py-3 px-5">Book Now</a></p>
+    </div>
+  </div>
+{% endblock %}
+

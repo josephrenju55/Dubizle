@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- Booking Start -->
+  <div class="container-xxl py-5">
+    <div class="container">
+      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+        <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
+        <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Luxury Room</span></h1>
+      </div>
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6 text-end">
+              <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{{obj.img.url}}" style="margin-top: 25%;" />
+            </div>
+            <div class="col-6 text-start">
+              <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'img/about-2.jpg' %}" />
+            </div>
+            <div class="col-6 text-end">
+              <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'img/about-3.jpg' %}" />
+            </div>
+            <div class="col-6 text-start">
+              <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'img/about-4.jpg' %}" />
+            </div>
+            {% comment %} <div class="heading_container heading_center">
+              <h2>{{obj.name}}</h2>
+            </div>
+            <div class="col-md-12 tab-wrap">
+              <div class="tab-content bg-light" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="day-1-tab">
+                  <div class="p-4">
+                    <h4 class="mb-4">Category : {{obj.cate}}</h4>
+                    <h4 class="price">Price : ₹{{obj.price}}/-</h4>
+                    <p>{{obj.desc}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div> {% endcomment %}
+        <div class="col-lg-6">
+          <div class="wow fadeInUp" data-wow-delay="0.2s">
+            <form action="booking" method="post">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="hotel_name" placeholder="Hotel Name" required />
+                    <label for="name">Hotel name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="hotel_manager_name" placeholder="Your Name" required />
+                    <label for="name">Hotel Manager Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="name" name="guest_name" placeholder="Guest Name" required />
+                    <label for="name">Guest Name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="email" class="form-control" id="number" name="room_number" placeholder="Room Number" required />
+                    <label for="email">Room Number</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating date" id="date3" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="login" name="log_in" placeholder="Login" data-target="#date3" data-toggle="datetimepicker" />
+                    <label for="checkin">Login</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating date" id="date4" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" id="logout" name="log_out" placeholder="Logout" data-target="#date4" data-toggle="datetimepicker" />
+                    <label for="checkout">Logout</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-floating">
+                    <textarea class="form-control" name="check_out" placeholder="Check Out" id="checkout" style="height: 100px"></textarea>
+                    <label for="message">checkout</label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  {% comment %} <a button class="btn btn-primary w-100 py-3" href="{% url 'payment' %}">Book Now</button></a> {% endcomment %}
+                  <input type="submit" value="Book Now">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Booking End -->
+{% endblock %}
